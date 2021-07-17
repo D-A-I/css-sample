@@ -1,0 +1,13 @@
+{
+  "name": "css-training",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  }
+}
