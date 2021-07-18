@@ -17,13 +17,61 @@ img {
 
 /* --- modules --- */
 
+.level1-heading {
+  padding: 30px 10px;
+  background-color: #e25c00;
+  color: #fff;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+.level1-heading__inner {
+  position: relative;
+  display: inline-block;
+  /* テキストと下線を、わずかに上に移動 */
+  transform: translateY(-15%);
+}
+
+.level1-heading__inner::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 80px;
+  height: 1px;
+  background-color: currentColor;
+  /* 下線のX座標を左に寄せる */
+  transform: translateX(-50%);
+}
+
+.level2-heading {
+  padding-bottom: 10px;
+  border-bottom: 4px solid #e25c00;
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.level3-heading {
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e25c00;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.level4-heading {
+  padding-left: 6px;
+  border-left: 2px solid #e25c00;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
 .btn {
   /* 親の文字揃え（text-align）を継承する。親の左右中央と同期する */
   display: inline-block;
   width: 300px;
   /* 親ボックスの横幅を限界にする */
   max-width: 100%;
-  /* 文字量が多い場合溢れてしまうので、height を指定しない */
+  /* 文字量が多い場合溢れてしまうので、height を指定しない。padding でスタイリングする */
   padding: 20px 10px;
   background-color: #e25c00;
   /* ホバー時の枠線を、ホバー前から確保しておく */
@@ -149,6 +197,182 @@ img {
 
 .before-icon--pdf::before {
   content: "\f1c1";
+}
+
+.before-icon--chevron-left::before {
+  content: "";
+  width: 0.375em;
+  height: 0.375rem;
+  border-bottom: 0.125em solid #e25c00;
+  border-left: 0.125em solid #e25c00;
+  transform: rotate(45deg) translateY(-30%);
+}
+
+.label {
+  display: inline-block;
+  padding: 0.2em 0.3em;
+  background-color: #e25c00;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border: 2px solid transparent;
+}
+
+.label--link {
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.label--link:focus,
+.label--link:hover {
+  background-color: #fff;
+  border-color: currentColor;
+  color: #e25c00;
+}
+
+.rounded-label {
+  display: inline-block;
+  padding: 0.3em 0.9em;
+  background-color: #e25c00;
+  border-radius: 1em;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* composite modules */
+
+.media {
+  display: flex;
+  align-items: center;
+}
+
+.media__img-wrapper {
+  /* flex: 伸長比 縮小比 ベースサイズ
+   * ex. フレックスコンテナ（.media）を縮小して、ベースサイズより小さくなった場合、ベースサイズ x 1 の比率で分割される */
+  flex: 0 1 27.58333%;
+  margin-right: 3.33333%;
+}
+
+.media__img {
+  width: 100%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.media__body {
+  /* flex: 1 = flex: 1 1 0 */
+  flex: 1;
+}
+
+/* 最後の要素（文章の部分）の下余白をリセットする */
+.media__body > *:last-child {
+  margin-bottom: 0;
+}
+
+.media__title {
+  margin-bottom: 10px;
+  font-size: 1.123rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .media {
+    /* media の `display: flex` を解除する */
+    display: block;
+  }
+  .media__img-wrapper {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+.media--reverse {
+  flex-direction: row-reverse;
+}
+
+.media--reverse .media__img-wrapper {
+  margin-right: 0;
+}
+
+.media--reverse .media__body {
+  margin-right: 3.33333%;
+  text-align: right;
+}
+
+@media screen and (max-width: 768px) {
+  .media--reverse .media__body {
+    margin-right: 0;
+  }
+}
+
+.card {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.card__img-wrapper {
+  position: relative;
+  padding-top: 56.25%;
+  /* object-fit に伴い削除 */
+  overflow: hidden;
+}
+
+.card__img {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  /* object-fit に伴い追加 */
+  /* height: 100%; */
+  /* object-fit: contain; */
+  transform: translateY(-50%);
+}
+
+.card__body {
+  padding: 15px;
+}
+
+.card__body > *:last-child {
+  margin-bottom: 0;
+}
+
+.card__title {
+  margin-bottom: 5px;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.card__txt {
+  color: #777;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-around; */
+}
+
+.cards--col3 {
+  margin-bottom: -30px;
+}
+
+.cards--col3 > .cards__item {
+  width: 31.707%;
+  margin-right: 2.43902%;
+  margin-bottom: 30px;
+}
+
+.cards--col3 > .cards__item:nth-of-type(3n) {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .cards--col3 {
+    margin-bottom: -20px;
+  }
+  .cards > .cards__item {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 }
 
 /* --- helper --- */
