@@ -349,6 +349,8 @@ img {
 }
 
 .cards--col3 {
+  /* 各 element（cards__item） で 30px 余白を設けている
+   * 最終行の下の余白は不要なため、block（cards--col3）側で相殺する */
   margin-bottom: -30px;
 }
 
