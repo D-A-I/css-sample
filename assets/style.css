@@ -311,8 +311,9 @@ img {
 
 .card__img-wrapper {
   position: relative;
+  /* img に position: absolute を使用しているため、height で高さを確保できない
+   * 56.25% の指定によりおおよそ 16:9 になる */
   padding-top: 56.25%;
-  /* object-fit に伴い削除 */
   overflow: hidden;
 }
 
@@ -320,9 +321,6 @@ img {
   position: absolute;
   top: 50%;
   width: 100%;
-  /* object-fit に伴い追加 */
-  /* height: 100%; */
-  /* object-fit: contain; */
   transform: translateY(-50%);
 }
 
@@ -373,6 +371,20 @@ img {
     margin-right: 0;
     margin-bottom: 20px;
   }
+}
+
+.cards--col4 {
+  margin-bottom: -20px;
+}
+
+.cards--col4 > .cards__item {
+  width: 23.78%;
+  margin-right: 1.62602%;
+  margin-bottom: 20px;
+}
+
+.cards--col4 > .cards__item:nth-of-type(4n) {
+  margin-right: 0;
 }
 
 /* --- helper --- */
