@@ -22,6 +22,7 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "joelday.docthis",
+    "stylelint.vscode-stylelint",
   ],
   "postCreateCommand": "yarn install", // コンテナイメージのビルド後にsetup
   // "forwardPorts": [],
