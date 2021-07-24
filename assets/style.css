@@ -390,6 +390,116 @@ img {
   }
 }
 
+.horizontal-table {
+  /* スクロール用の modifier を切り出すための block
+   * 以下は外枠.. */
+  border: 1px solid #ddd;
+}
+
+.horizontal-table__inner {
+  width: 100%;
+}
+
+.horizontal-table__header {
+  width: 20%;
+  padding: 15px;
+  font-weight: bold;
+  vertical-align: middle;
+  background-color: #efefef;
+  /* 各行の下線 */
+  border-bottom: 1px solid #ddd;
+}
+
+.horizontal-table__text {
+  padding: 15px;
+  /* 各行の下線 */
+  border-bottom: 1px solid #ddd;
+}
+
+.horizontal-table__row:last-child .horizontal-table__header,
+.horizontal-table__row:last-child .horizontal-table__text {
+  /* 最終行の下線は除去。外枠の border に任せる */
+  border-bottom-width: 0;
+}
+
+@media screen and (max-width: 768px) {
+  /* 水平スクロールを MindBEMding の modifier で実装 */
+  .horizontal-table--md-scroll {
+    overflow-x: auto;
+    border-right-width: 0;
+  }
+  .horizontal-table--md-scroll .horizontal-table__header,
+  .horizontal-table--md-scroll .horizontal-table__text {
+    /* white-space: 改行／タブ／スペースの扱いを定義
+     * nowrap は、自動改行をOFF */
+    white-space: nowrap;
+  }
+  .horizontal-table--md-scroll .horizontal-table__text {
+    border-right: 1px solid #ddd;
+  }
+}
+
+.vertical-table {
+  /* 外枠 */
+  border: 1px solid #ddd;
+}
+
+/* table タグに付与 */
+.vertical-table__inner {
+  width: 100%;
+  text-align: center;
+  table-layout: fixed;
+}
+
+.vertical-table__header-row {
+  background-color: #efefef;
+}
+
+.vertical-table__header {
+  padding: 15px;
+  font-weight: bold;
+  text-align: center;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.vertical-table__text {
+  padding: 15px;
+  text-align: center;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.vertical-table__header-row:last-child .vertical-table__header {
+  /* 右端の枠を非表示 */
+  border-right-width: 0;
+}
+
+.vertical-table__text-row:last-child .vertical-table__text {
+  /* 下端の枠を非表示 */
+  border-bottom-width: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .vertical-table {
+    overflow-x: auto;
+    border-right-width: 0;
+  }
+  .vertical-table__inner {
+    width: auto;
+    /* 下が無いと safari の表示がめっちゃ崩れた */
+    min-width: 100%;
+  }
+  .vertical-table__header,
+  .vertical-table__text {
+    white-space: nowrap;
+  }
+  .vertical-table__header:last-child,
+  .vertical-table__text:last-child {
+    border-right-width: 1px;
+  }
+}
+
 /* --- helper --- */
 
 .m-1 {
