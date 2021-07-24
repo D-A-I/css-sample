@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "http-server"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "normalize.css": "^8.0.1"
