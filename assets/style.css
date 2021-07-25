@@ -470,8 +470,10 @@ img {
   border-bottom: 1px solid #ddd;
 }
 
-.vertical-table__header-row:last-child .vertical-table__header {
-  /* 右端の枠を非表示 */
+.vertical-table__header:last-child,
+.vertical-table__text:last-child {
+  /* last-child >> "兄弟要素"の、最後の要素に適用される（兄弟がいないと適用されないらしい）
+   * 右端の枠を非表示 */
   border-right-width: 0;
 }
 
@@ -497,6 +499,69 @@ img {
   .vertical-table__header:last-child,
   .vertical-table__text:last-child {
     border-right-width: 1px;
+  }
+}
+
+.cross-table {
+  border: 1px solid #ddd;
+}
+
+.cross-table__inner {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.cross-table__header {
+  padding: 15px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #efefef;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.cross-table__text {
+  padding: 15px;
+  text-align: center;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.cross-table__header:last-child,
+.cross-table__text:last-child {
+  border-right-width: 0;
+}
+
+.cross-table__text-row:last-child .cross-table__text {
+  border-bottom-width: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .cross-table {
+    /* メディアクエリで横スクロールする場合１
+     * table 親の div に対して設定する */
+    overflow-x: auto;
+    border-right-width: 0;
+  }
+  .cross-table__inner {
+    /* メディアクエリで横スクロールする場合２
+     * table 自体への設定。safari の表示崩れを回避 */
+    width: auto;
+    min-width: 100%;
+  }
+  .cross-table__header,
+  .cross-table__text {
+    /* メディアクエリで横スクロールする場合３
+     * 各セルの自動改行を抑止 */
+    white-space: nowrap;
+  }
+  .cross-table__header:last-child,
+  .cross-table__text:last-child {
+    border-right-width: 0;
+  }
+  .cross-table__header--md-sticky {
+    position: sticky;
+    left: 0;
   }
 }
 
