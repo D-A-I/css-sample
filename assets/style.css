@@ -569,13 +569,15 @@ img {
 }
 
 .pager {
-  /* ページネーション１ - flex（x2）で実装する場合 */
+  /* ページネーション１ - flex（x2）で実装する場合
+   * （型として覚えておく） */
   display: flex;
   overflow-x: auto;
 }
 
 .pager__inner {
-  /* ページネーション２ - flex（x2）で実装する場合 */
+  /* ページネーション２ - flex（x2）で実装する場合
+   * （型として覚えておく） */
   display: flex;
   margin-right: auto;
   margin-left: auto;
@@ -617,6 +619,8 @@ img {
   background-color: #e25c00;
 }
 
+/* 親の tab-navigation はメディアクエリで使用
+ * ※ table の時と同様に、横幅を縮めた時の、横スクロール用 */
 .tab-navigation__inner {
   display: flex;
   /* flex コンテナ用のプロパティ
@@ -634,6 +638,7 @@ img {
 }
 
 .tab-navigation__link {
+  /* 親要素を、インラインレイアウト（横並び）にする */
   display: inline-block;
   padding: 0 30px 10px 30px;
   margin-bottom: 10px;
@@ -668,18 +673,22 @@ img {
   }
 }
 
+/* dd タグ（質問に対するアンサー）に適用 */
 .faq > *:last-child {
   margin-bottom: 0;
 }
 
 .faq__row {
   position: relative;
-  box-sizing: content-box;
+  /* box-sizing: border-box
+   * と指定すると、width / height がパディングとボーダーを含んだ値になる
+   * デフォルトは content-box */
+  /* box-sizing: content-box; */
   display: flex;
   align-items: flex-start;
   min-height: 45px;
   padding-left: 60px;
-  margin-left: 0;
+  margin-left: 5px;
 }
 
 .faq__row--question {
@@ -688,14 +697,14 @@ img {
   font-weight: bold;
 }
 
-.faq__question-text {
-  padding-top: 12px;
-}
-
 .faq__row--answer {
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid #ddd;
+}
+
+.faq__question-text {
+  padding-top: 10px;
 }
 
 .faq__icon {
@@ -720,16 +729,22 @@ img {
   background: #efefef;
 }
 
+/* 
 .faq__answer-body {
   padding-top: 12px;
 }
+*/
 
 .faq__answer-body > *:last-child {
   margin-bottom: 0;
 }
 
 .faq__answer-text {
+  margin: 10px 0 20px 0;
+  /*
+  margin-top: 10px;
   margin-bottom: 20px;
+  */
 }
 /* --- helper --- */
 
