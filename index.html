@@ -353,6 +353,32 @@
       </div>
     </dd>
   </dl>
+  <h4 class="level4-heading">アコーディオン</h4>
+  <dl class="accordion">
+    <dt class="accordion__title">
+      <button class="accordion__btn" type="button">
+        好きな食べ物は何ですか。
+      </button>
+      <!-- /.accordion__btn -->
+    </dt><!-- /.accordion__title -->
+    <dd class="accordion__body">
+      <p class="accordion__text">
+        私は、子供の時からずっと ROYAL CANIN ですね。
+      </p><!-- /.accordion__text -->
+    </dd><!-- /.accordion__body -->
+    <!-- 以下はコンテンツが開いた状態 -->
+    <dt class="accordion__title">
+      <!-- +++ button を form で使用しない場合、type="button" を付ける +++ -->
+      <button class="accordion__btn accordion__btn--active" type="button">
+        好きな ROYAL CANIN の種類は何ですか。
+      </button><!-- /.accordion__btn accordion__btn--active -->
+    </dt><!-- /.accordion__title -->
+    <dd class="accordion__body accordion__body--active">
+      <p class="accordion__text">
+        最近は、アミノペプチド フォーミュラ が多いですが、基本的に何でも食べます。
+      </p><!-- /.accordion__text -->
+    </dd><!-- /.accordion__body accordion__body--active -->
+  </dl><!-- /.accordion -->
 </body>
 
 </html>
