@@ -679,6 +679,8 @@ img {
 }
 
 .faq__row {
+  /* position: absolute を使う時は、親要素に
+   * position: relative を使うのが定石 */
   position: relative;
   /* box-sizing: border-box
    * と指定すると、width / height がパディングとボーダーを含んだ値になる
@@ -703,10 +705,6 @@ img {
   border-bottom: 1px solid #ddd;
 }
 
-.faq__question-text {
-  padding-top: 10px;
-}
-
 .faq__icon {
   position: absolute;
   top: 0;
@@ -729,6 +727,10 @@ img {
   background: #efefef;
 }
 
+.faq__question-text {
+  padding-top: 10px;
+}
+
 /* 
 .faq__answer-body {
   padding-top: 12px;
@@ -741,10 +743,6 @@ img {
 
 .faq__answer-text {
   margin: 10px 0 20px 0;
-  /*
-  margin-top: 10px;
-  margin-bottom: 20px;
-  */
 }
 /* --- helper --- */
 
