@@ -745,12 +745,14 @@ img {
   margin: 10px 0 20px 0;
 }
 
+/* +: 隣接セレクタ.. 隣り合った"後の方"に適用 */
 .accordion__body + .accordion__title {
   margin-top: 20px;
 }
 
 .accordion__btn {
   position: relative;
+  /* button は元々 inline-block */
   display: block;
   width: 100%;
   padding: 10px 40px 10px 15px;
@@ -763,6 +765,7 @@ img {
   transition: 0.25s;
 }
 
+/* 横線を表す。right で位置を指定 */
 .accordion__btn::before {
   position: absolute;
   top: 50%;
@@ -775,6 +778,7 @@ img {
   transform: translateY(-50%);
 }
 
+/* 縦線を表す。right で位置を指定 */
 .accordion__btn::after {
   position: absolute;
   top: 50%;
@@ -793,6 +797,7 @@ img {
   background-color: #fff;
 }
 
+/* accordion__btn::after（縦線）を上書きしている */
 .accordion__btn--active::after {
   content: none;
 }
