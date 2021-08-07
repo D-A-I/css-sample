@@ -654,7 +654,7 @@ img {
 
 .pager__item {
   margin-right: 15px;
-  list-style: none;
+  list-style: none; /* 先頭の ・ を消す */
 }
 
 .pager__link {
@@ -885,6 +885,33 @@ img {
 .accordion__text {
   margin-top: 5px;
   margin-bottom: 20px;
+}
+
+.vertical-posts__item {
+  padding: 15px 0;
+  list-style: none;
+  border-bottom: 1px solid #ddd;
+}
+
+.vertical-posts__item:first-child {
+  padding-top: 0;
+}
+
+.vertical-posts__header {
+  margin-bottom: 10px;
+}
+
+.vertical-posts__date {
+  font-size: 0.875rem;
+}
+
+.vertical-posts__title {
+  text-decoration: none;
+}
+
+.vertical-posts__title:focus,
+.vertical-posts__title:hover {
+  text-decoration: underline;
 }
 
 /* --- helper --- */
