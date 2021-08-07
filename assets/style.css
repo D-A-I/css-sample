@@ -242,6 +242,71 @@ img {
 
 /* composite modules */
 
+@media screen and (max-width: 768px) {
+  .only-lg {
+    display: none;
+  }
+}
+
+.junbotron {
+  /* メディアクエリ適用時の、違和感を防止する試み
+   * （あまり違いがみられないような..） */
+  height: calc(69.44444vw - 233.33333px);
+  /* height: 50vw; */
+  background-position: center center;
+  background-size: cover;
+}
+
+.junbotron__inner {
+  position: relative;
+  /* 以下の組み合わせは、左右中央揃えを指す。1つの block と捉えることも可
+   * （その場合、個別に使用することを踏まえて padding が必要）
+   * - max-width: 9999px
+   * - margin-left: auto
+   * - margin-right: auto */
+  max-width: 1230px;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.junbotron__title {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  padding: 40px;
+  font-size: calc(1.81818vw + 14.18182px);
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.2);
+  transform: translateY(-50%);
+}
+
+@media screen and (min-width: 1200px) {
+  .junbotron {
+    height: 600px;
+  }
+  .junbotron__title {
+    font-size: 2.25rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .junbotron {
+    height: 300px;
+  }
+  .junbotron__inner {
+    margin-left: auto;
+  }
+  .junbotron__title {
+    left: 50%;
+    width: 90%;
+    padding: 15px;
+    font-size: 1.25rem;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+}
+
 .media {
   display: flex;
   align-items: center;
