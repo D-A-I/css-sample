@@ -4,15 +4,15 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "http-server"
+    "start": "reload"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
-    "http-server": "^0.12.3",
     "prettier": "^2.3.2",
+    "reload": "^3.2.0",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-recess-order": "^2.4.0",
