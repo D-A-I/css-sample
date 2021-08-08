@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
-    "normalize.css": "^8.0.1"
+    "modern-css-reset": "^1.4.0"
   },
   "devDependencies": {
     "prettier": "^2.3.2",
