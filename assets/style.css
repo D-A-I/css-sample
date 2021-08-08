@@ -931,6 +931,8 @@ img {
 }
 
 .horizontal-btn-list__btn {
+  /* 下の display 〜 justify-content + height: 100% で
+   * 左右中央揃えと高さ揃え */
   display: inline-flex;
   align-items: center;
   justify-content: center;
