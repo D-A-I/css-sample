@@ -902,6 +902,7 @@ img {
 }
 
 .vertical-posts__date {
+  margin-right: 10px;
   font-size: 0.875rem;
 }
 
@@ -912,6 +913,27 @@ img {
 .vertical-posts__title:focus,
 .vertical-posts__title:hover {
   text-decoration: underline;
+}
+
+.vertical-posts__header > *:last-child {
+  margin-right: 0;
+}
+
+.vertical-posts__labels {
+  /* ブラウザのデフォルトスタイル（padding-inline..）を打ち消す */
+  padding-inline-start: 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-bottom: -10px;
+}
+
+.vertical-posts__labels > *:last-child {
+  margin-right: 0;
+}
+
+.vertical-posts__label {
+  margin: 0 10px 10px 0;
+  list-style: none;
 }
 
 .horizontal-btn-list {
