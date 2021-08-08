@@ -962,6 +962,11 @@ img {
   height: 100%;
 }
 
+.accordion__cards {
+  width: 90%;
+  margin: 0 auto 10px auto;
+}
+
 /* --- helper --- */
 
 .m-1 {
