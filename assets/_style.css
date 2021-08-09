@@ -1,6 +1,5 @@
-@charset "UTF-8";
-@import "../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
 /* --- base --- */
+
 body {
   font-family: sans-serif;
   line-height: 1.5;
@@ -17,6 +16,7 @@ img {
 }
 
 /* --- modules --- */
+
 .level1-heading {
   padding: 30px 10px;
   font-size: 1.75rem;
@@ -24,12 +24,14 @@ img {
   text-align: center;
   background-color: #e25c00;
 }
+
 .level1-heading__inner {
   position: relative;
   display: inline-block;
   /* テキストと下線を、わずかに上に移動 */
   transform: translateY(-15%);
 }
+
 .level1-heading__inner::after {
   position: absolute;
   bottom: -10px;
@@ -81,37 +83,44 @@ img {
   /* box-shadow: 左右px 上下px ぼかし 色 */
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   transition: 0.25s;
-  /* +++ 矢印付きのボタン +++
-   * `MindBEMding` の Modifier は、ハイフンx2で表現 */
-  /* +++ 黄色のボタン +++ */
 }
-.btn:focus, .btn:hover {
+
+.btn:focus,
+.btn:hover {
   color: #e25c00;
   background-color: #fff;
   /* currentColor: color を引き継ぐ */
   border-color: currentColor;
 }
+
+/* `MindBEMding` の Modifier は、ハイフンx2で表現する */
 .btn--arrow-right {
   /* position: absolute を使う時は、脳死で親要素に relative を指定 */
   position: relative;
   padding-right: 2em;
   padding-left: 1.38em;
-  /* after 擬似要素.. 要素の直後にコンテンツを追加。よく画像を追加したりする */
 }
+
+/* after 擬似要素.. 要素の直後にコンテンツを追加。よく画像を追加したりする */
 .btn--arrow-right::after {
   position: absolute;
+  /* 上端から50%の位置（中央）に下げる。 */
   top: 50%;
   right: 0.83em;
   font-family: "Font Awesome 5 Free", sans-serif;
   font-weight: 900;
-  content: "";
+  content: "\f061";
+  /* translateY が無いとアイコンの上端が要素の中央になる。アイコン自体の中央を上に寄せる（-50%） */
   transform: translateY(-50%);
 }
+
 .btn--gentle {
   color: #222;
   background-color: lightgoldenrodyellow;
 }
-.btn--gentle:focus, .btn--gentle:hover {
+
+.btn--gentle:focus,
+.btn--gentle:hover {
   color: #222;
   border-color: lightgoldenrodyellow;
 }
@@ -137,7 +146,9 @@ img {
   border-radius: 10px;
   transition: 0.25s;
 }
-.rounded-btn:focus, .rounded-btn:hover {
+
+.rounded-btn:focus,
+.rounded-btn:hover {
   color: #e25c00;
   background-color: #fff;
   /* currentColor: color を引き継ぐ */
@@ -147,38 +158,35 @@ img {
 .before-icon-btn {
   position: relative;
   display: inline-block;
-  /* padding を px で指定すると、フォントサイズが大きくなるにつれて相対的にスペースが詰まってしまう */
-  padding: 0.2em 0.5em;
+  /* padding を px で指定すると、フォントサイズが大きくなるにつれて相対的にスペースが詰まる */
+  padding: 0.2em 0.3em;
   color: #e25c00;
   text-decoration: none;
   border: 1px solid currentColor;
   transition: 0.25s;
-  /* +++ ダウンロードアイコン +++ */
-  /* +++ 顕微鏡アイコン +++ */
 }
-.before-icon-btn:focus, .before-icon-btn:hover {
+
+.before-icon-btn:focus,
+.before-icon-btn:hover {
   color: #fff;
   background-color: #e25c;
 }
+
 .before-icon-btn::before {
   display: inline-block;
   margin-right: 0.5em;
   font-family: "Font Awesome 5 Free", sans-serif;
   font-weight: 900;
 }
+
 .before-icon-btn--download::before {
-  content: "";
-}
-.before-icon-btn--zoom::before {
-  content: "";
+  content: "\f019";
 }
 
-/* 要素の前後にアイコンを追加する標準的な方法 -> 擬似要素 */
-.before-icon {
-  /* +++ pdf アイコン +++ */
-  /* +++ 左向きの山の形アイコン +++
-   * CSS 図形（手作り） */
+.before-icon-btn--zoom::before {
+  content: "\f00e";
 }
+
 .before-icon::before {
   display: inline-block;
   margin-right: 0.15em;
@@ -186,9 +194,11 @@ img {
   font-weight: 400;
   color: #e25c00;
 }
+
 .before-icon--pdf::before {
-  content: "";
+  content: "\f1c1";
 }
+
 .before-icon--chevron-left::before {
   width: 0.375em;
   height: 0.375rem;
@@ -206,13 +216,15 @@ img {
   color: #fff;
   background-color: #e25c00;
   border: 2px solid transparent;
-  /* +++ ラベル（リンク） +++ */
 }
+
 .label--link {
   text-decoration: none;
   transition: 0.25s;
 }
-.label--link:focus, .label--link:hover {
+
+.label--link:focus,
+.label--link:hover {
   color: #e25c00;
   background-color: #fff;
   border-color: currentColor;
@@ -229,11 +241,13 @@ img {
 }
 
 /* composite modules */
+
 @media screen and (max-width: 768px) {
   .only-lg {
     display: none;
   }
 }
+
 .junbotron {
   /* メディアクエリ適用時の、違和感を防止する試み
    * （あまり違いがみられないような..） */
@@ -242,6 +256,7 @@ img {
   background-position: center center;
   background-size: cover;
 }
+
 .junbotron__inner {
   position: relative;
   /* 以下の組み合わせは、左右中央揃えを指す。1つの block と捉えることも可
@@ -254,6 +269,7 @@ img {
   margin-right: auto;
   margin-left: auto;
 }
+
 .junbotron__title {
   position: absolute;
   top: 50%;
@@ -264,6 +280,7 @@ img {
   background-color: rgba(0, 0, 0, 0.2);
   transform: translateY(-50%);
 }
+
 @media screen and (min-width: 1200px) {
   .junbotron {
     height: 600px;
@@ -272,6 +289,7 @@ img {
     font-size: 2.25rem;
   }
 }
+
 @media screen and (max-width: 768px) {
   .junbotron {
     height: 300px;
@@ -292,42 +310,37 @@ img {
 .media {
   display: flex;
   align-items: center;
-  /* +++ 左右逆のメディア +++ */
 }
+
 .media__img-wrapper {
   /* flex: 伸長比 縮小比 ベースサイズ
    * ex. フレックスコンテナ（.media）を縮小して、ベースサイズより小さくなった場合、ベースサイズ x 1 の比率で分割される */
   flex: 0 1 27.58333%;
   margin-right: 3.33333%;
 }
+
 .media__img {
   width: 100%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
 }
+
 .media__body {
   /* flex: 1 = flex: 1 1 0 */
   flex: 1;
-  /* 最後の要素（文章の部分）の下余白をリセットする
-   * > .. 直下の子要素を指定。半角空白で区切った場合は、孫でも対象になる */
 }
+
+/* 最後の要素（文章の部分）の下余白をリセットする
+ * > .. 直下の子要素を指定。半角空白で区切った場合は、孫でも対象になる */
 .media__body > *:last-child {
   margin-bottom: 0;
 }
+
 .media__title {
   margin-bottom: 10px;
   font-size: 1.123rem;
   font-weight: bold;
 }
-.media--reverse {
-  flex-direction: row-reverse;
-}
-.media--reverse .media__img-wrapper {
-  margin-right: 0;
-}
-.media--reverse .media__body {
-  margin-right: 3.33333%;
-  text-align: right;
-}
+
 @media screen and (max-width: 768px) {
   .media {
     /* media の `display: flex` を解除する */
@@ -337,21 +350,31 @@ img {
     margin-right: 0;
     margin-bottom: 20px;
   }
-  .media--reverse .media__body {
-    margin-right: 0;
-  }
 }
 
-/*
+.media--reverse {
+  flex-direction: row-reverse;
+}
+
+.media--reverse .media__img-wrapper {
+  margin-right: 0;
+}
+
+.media--reverse .media__body {
+  margin-right: 3.33333%;
+  text-align: right;
+}
+
 @media screen and (max-width: 768px) {
   .media--reverse .media__body {
     margin-right: 0;
   }
 }
-*/
+
 .card {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
 }
+
 .card__img-wrapper {
   position: relative;
   /* img に position: absolute を使用しているため、height で高さを確保できない
@@ -359,23 +382,28 @@ img {
   padding-top: 56.25%;
   overflow: hidden;
 }
+
 .card__img {
   position: absolute;
   top: 50%;
   width: 100%;
   transform: translateY(-50%);
 }
+
 .card__body {
   padding: 15px;
 }
+
 .card__body > *:last-child {
   margin-bottom: 0;
 }
+
 .card__title {
   margin-bottom: 5px;
   font-size: 1.125rem;
   font-weight: bold;
 }
+
 .card__txt {
   color: #777;
 }
@@ -385,36 +413,44 @@ img {
   flex-wrap: wrap;
   /* justify-content: space-around; */
 }
+
 .cards--col3 {
   /* 各 element（cards__item） で 30px 余白を設けている
    * 最終行の下の余白は不要なため、block（cards--col3）側で相殺する */
   margin-bottom: -30px;
 }
+
 .cards--col4 {
   margin-bottom: -20px;
 }
+
 .cards--col3 > .cards__item {
   width: 31.707%;
   margin-right: 2.43902%;
   margin-bottom: 30px;
 }
+
 .cards--col4 > .cards__item {
   width: 23.78%;
   margin-right: 1.62602%;
   margin-bottom: 20px;
 }
+
 .cards--col3 > .cards__item:nth-of-type(3n) {
   margin-right: 0;
 }
+
 .cards--col4 > .cards__item:nth-of-type(4n) {
   margin-right: 0;
 }
+
 @media screen and (max-width: 768px) {
   .cards > .cards__item {
     width: 100%;
     margin-right: 0;
     margin-bottom: 20px;
   }
+
   .cards > .cards__item:last-child {
     margin-bottom: 0;
   }
@@ -425,9 +461,11 @@ img {
    * 以下は外枠.. */
   border: 1px solid #ddd;
 }
+
 .horizontal-table__inner {
   width: 100%;
 }
+
 .horizontal-table__header {
   width: 20%;
   padding: 15px;
@@ -437,27 +475,32 @@ img {
   /* 各行の下線 */
   border-bottom: 1px solid #ddd;
 }
+
 .horizontal-table__text {
   padding: 15px;
   /* 各行の下線 */
   border-bottom: 1px solid #ddd;
 }
-.horizontal-table__row:last-child .horizontal-table__header, .horizontal-table__row:last-child .horizontal-table__text {
+
+.horizontal-table__row:last-child .horizontal-table__header,
+.horizontal-table__row:last-child .horizontal-table__text {
   /* 最終行の下線は除去。外枠の border に任せる */
   border-bottom-width: 0;
 }
+
 @media screen and (max-width: 768px) {
-  .horizontal-table {
-    /* 水平スクロールを MindBEMding の modifier で実装 */
-  }
+  /* 水平スクロールを MindBEMding の modifier で実装 */
   .horizontal-table--md-scroll {
     overflow-x: auto;
     border-right-width: 0;
   }
-  .horizontal-table--md-scroll .horizontal-table__header, .horizontal-table--md-scroll .horizontal-table__text {
+  .horizontal-table--md-scroll .horizontal-table__header,
+  .horizontal-table--md-scroll .horizontal-table__text {
     /* white-space: 改行／タブ／スペースの扱いを定義
-    * nowrap は、自動改行をOFF */
+     * nowrap は、自動改行をOFF */
     white-space: nowrap;
+  }
+  .horizontal-table--md-scroll .horizontal-table__text {
     border-right: 1px solid #ddd;
   }
 }
@@ -465,16 +508,19 @@ img {
 .vertical-table {
   /* 外枠 */
   border: 1px solid #ddd;
-  /* table タグに付与 */
 }
+
+/* table タグに付与 */
 .vertical-table__inner {
   width: 100%;
   text-align: center;
   table-layout: fixed;
 }
+
 .vertical-table__header-row {
   background-color: #efefef;
 }
+
 .vertical-table__header {
   padding: 15px;
   font-weight: bold;
@@ -482,21 +528,26 @@ img {
   border-right: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
+
 .vertical-table__text {
   padding: 15px;
   text-align: center;
   border-right: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
-.vertical-table__header:last-child, .vertical-table__text:last-child {
+
+.vertical-table__header:last-child,
+.vertical-table__text:last-child {
   /* last-child >> "兄弟要素"の、最後の要素に適用される（兄弟がいないと適用されないらしい）
-  * 右端の枠を非表示 */
+   * 右端の枠を非表示 */
   border-right-width: 0;
 }
+
 .vertical-table__text-row:last-child .vertical-table__text {
   /* 下端の枠を非表示 */
   border-bottom-width: 0;
 }
+
 @media screen and (max-width: 768px) {
   .vertical-table {
     overflow-x: auto;
@@ -507,10 +558,12 @@ img {
     /* 下が無いと safari の表示がめっちゃ崩れた */
     min-width: 100%;
   }
-  .vertical-table__header, .vertical-table__text {
+  .vertical-table__header,
+  .vertical-table__text {
     white-space: nowrap;
   }
-  .vertical-table__header:last-child, .vertical-table__text:last-child {
+  .vertical-table__header:last-child,
+  .vertical-table__text:last-child {
     border-right-width: 1px;
   }
 }
@@ -518,10 +571,12 @@ img {
 .cross-table {
   border: 1px solid #ddd;
 }
+
 .cross-table__inner {
   width: 100%;
   table-layout: fixed;
 }
+
 .cross-table__header {
   padding: 15px;
   font-weight: bold;
@@ -530,18 +585,23 @@ img {
   border-right: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
+
 .cross-table__text {
   padding: 15px;
   text-align: center;
   border-right: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
-.cross-table__header:last-child, .cross-table__text:last-child {
+
+.cross-table__header:last-child,
+.cross-table__text:last-child {
   border-right-width: 0;
 }
+
 .cross-table__text-row:last-child .cross-table__text {
   border-bottom-width: 0;
 }
+
 @media screen and (max-width: 768px) {
   .cross-table {
     /* メディアクエリで横スクロールする場合１
@@ -555,12 +615,14 @@ img {
     width: auto;
     min-width: 100%;
   }
-  .cross-table__header, .cross-table__text {
+  .cross-table__header,
+  .cross-table__text {
     /* メディアクエリで横スクロールする場合３
      * 各セルの自動改行を抑止 */
     white-space: nowrap;
   }
-  .cross-table__header:last-child, .cross-table__text:last-child {
+  .cross-table__header:last-child,
+  .cross-table__text:last-child {
     border-right-width: 0;
   }
   .cross-table__header--md-sticky {
@@ -577,6 +639,7 @@ img {
   display: flex;
   overflow-x: auto;
 }
+
 .pager__inner {
   /* ページネーション２ - flex（x2）で実装する場合
    * （型として覚えておく） */
@@ -584,14 +647,16 @@ img {
   margin-right: auto;
   margin-left: auto;
 }
+
 .pager__inner > *:last-child {
   margin-right: 0;
 }
+
 .pager__item {
   margin-right: 15px;
-  list-style: none;
-  /* 先頭の ・ を消す */
+  list-style: none; /* 先頭の ・ を消す */
 }
+
 .pager__link {
   /* テキストを上下中央揃えするための、良くある方法（上3行）
    * display: flex 〜 justify-content: center */
@@ -605,21 +670,22 @@ img {
   border: 1px solid currentColor;
   transition: 0.25s;
 }
-.pager__link:focus, .pager__link:hover {
+
+.pager__link:focus,
+.pager__link:hover {
   color: #fff;
   background-color: #e25c00;
   opacity: 0.75;
 }
+
 .pager__link--active {
   color: #fff;
   pointer-events: none;
   background-color: #e25c00;
 }
 
-.tab-navigation {
-  /* 親の tab-navigation はメディアクエリで使用
-   * ※ table の時と同様に、横幅を縮めた時の、横スクロール用 */
-}
+/* 親の tab-navigation はメディアクエリで使用
+ * ※ table の時と同様に、横幅を縮めた時の、横スクロール用 */
 .tab-navigation__inner {
   display: flex;
   /* flex コンテナ用のプロパティ
@@ -631,9 +697,11 @@ img {
   justify-content: center;
   margin-bottom: -10px;
 }
+
 .tab-navigation__item {
   list-style: none;
 }
+
 .tab-navigation__link {
   /* 親要素を、インラインレイアウト（横並び）にする */
   display: inline-block;
@@ -644,16 +712,20 @@ img {
   border-bottom: 4px solid #efefef;
   transition: 0.25s;
 }
-.tab-navigation__link:focus, .tab-navigation__link:hover {
+
+.tab-navigation__link:focus,
+.tab-navigation__link:hover {
   color: #e25c00;
   border-bottom-color: currentColor;
   opacity: 0.75;
 }
+
 .tab-navigation__link--active {
   color: #e25c00;
   pointer-events: none;
   border-bottom-color: currentColor;
 }
+
 @media screen and (max-width: 768px) {
   .tab-navigation {
     overflow-x: auto;
@@ -685,11 +757,13 @@ img {
   padding-left: 60px;
   margin-left: 5px;
 }
+
 .faq__row--question {
   margin-bottom: 15px;
   font-size: 1.125rem;
   font-weight: bold;
 }
+
 .faq__row--answer {
   padding-bottom: 20px;
   margin-bottom: 20px;
@@ -707,10 +781,12 @@ img {
   text-align: center;
   border-radius: 50%;
 }
+
 .faq__icon--question {
   color: #fff;
   background-color: #e25c00;
 }
+
 .faq__icon--answer {
   color: #e25c00;
   background: #efefef;
@@ -720,6 +796,12 @@ img {
   padding-top: 10px;
 }
 
+/* 
+.faq__answer-body {
+  padding-top: 12px;
+}
+*/
+
 .faq__answer-body > *:last-child {
   margin-bottom: 0;
 }
@@ -728,7 +810,7 @@ img {
   margin: 10px 0 20px 0;
 }
 
-/* + >> 隣接セレクタ.. 隣り合った"後の方"に適用 */
+/* +: 隣接セレクタ.. 隣り合った"後の方"に適用 */
 .accordion__body + .accordion__title {
   margin-top: 20px;
 }
@@ -746,10 +828,9 @@ img {
   background-color: #e25c00;
   border: 2px solid #e25c00;
   transition: 0.25s;
-  /* 横線を表す。right で位置を指定 */
-  /* 縦線を表す。right で位置を指定 */
-  /* accordion__btn::after（縦線）を上書きしている */
 }
+
+/* 横線を表す。right で位置を指定 */
 .accordion__btn::before {
   position: absolute;
   top: 50%;
@@ -761,6 +842,8 @@ img {
   background-color: currentColor;
   transform: translateY(-50%);
 }
+
+/* 縦線を表す。right で位置を指定 */
 .accordion__btn::after {
   position: absolute;
   top: 50%;
@@ -772,10 +855,14 @@ img {
   background-color: currentColor;
   transform: translateY(-50%);
 }
-.accordion__btn:focus, .accordion__btn:hover {
+
+.accordion__btn:focus,
+.accordion__btn:hover {
   color: #e25c00;
   background-color: #fff;
 }
+
+/* accordion__btn::after（縦線）を上書きしている */
 .accordion__btn--active::after {
   content: none;
 }
@@ -786,9 +873,11 @@ img {
   margin-left: 0;
   border: 1px solid #ddd;
 }
+
 .accordion__body > *:last-child {
   margin-bottom: 0;
 }
+
 .accordion__body--active {
   display: block;
 }
@@ -803,15 +892,13 @@ img {
   list-style: none;
   border-bottom: 1px solid #ddd;
 }
+
 .vertical-posts__item:first-child {
   padding-top: 0;
 }
 
 .vertical-posts__header {
   margin-bottom: 10px;
-}
-.vertical-posts__header > *:last-child {
-  margin-right: 0;
 }
 
 .vertical-posts__date {
@@ -822,8 +909,14 @@ img {
 .vertical-posts__title {
   text-decoration: none;
 }
-.vertical-posts__title:focus, .vertical-posts__title:hover {
+
+.vertical-posts__title:focus,
+.vertical-posts__title:hover {
   text-decoration: underline;
+}
+
+.vertical-posts__header > *:last-child {
+  margin-right: 0;
 }
 
 .vertical-posts__labels {
@@ -833,6 +926,7 @@ img {
   flex-wrap: wrap;
   margin-bottom: -10px;
 }
+
 .vertical-posts__labels > *:last-child {
   margin-right: 0;
 }
@@ -846,6 +940,7 @@ img {
   display: flex;
   justify-content: center;
 }
+
 .horizontal-btn-list > *:last-child {
   margin-right: 0;
 }
@@ -873,6 +968,7 @@ img {
 }
 
 /* --- helper --- */
+
 .m-1 {
   margin: 0.25rem;
 }
@@ -896,5 +992,3 @@ img {
 .mb-2 {
   margin-bottom: 0.5rem;
 }
-
-/*# sourceMappingURL=style.css.map */
