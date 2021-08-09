@@ -154,7 +154,7 @@ img {
   border: 1px solid currentColor;
   transition: 0.25s;
   /* +++ ダウンロードアイコン +++ */
-  /* +++ 顕微鏡アイコン +++ */
+  /* +++ 虫眼鏡アイコン +++ */
 }
 .before-icon-btn:focus, .before-icon-btn:hover {
   color: #fff;
@@ -170,7 +170,7 @@ img {
   content: "";
 }
 .before-icon-btn--zoom::before {
-  content: "";
+  content: "";
 }
 
 /* 要素の前後にアイコンを追加する標準的な方法 -> 擬似要素 */
