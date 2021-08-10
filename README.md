@@ -4,11 +4,10 @@
 
 ## 予定
 
-- npm scripts 修正
 - scss
   - （node-sass は非推奨になり、Dart Sass が推奨になったらしい）
   - font awesome も scss 化する
-  - 全体的にリファクタ
-- prettier 自動実行
+- アコーディオン用の js 追加
+- サイドメニュー追加
 - コンテナ側に gh コマンドを追加する（かも）
-- accordion を動作させるために js を追加
+- リファクタ
