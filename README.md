@@ -8,7 +8,7 @@
 - scss
   - （node-sass は非推奨になり、Dart Sass が推奨になったらしい）
   - font awesome も scss 化する
-  - リファクタ
+  - 全体的にリファクタ
 - prettier 自動実行
 - コンテナ側に gh コマンドを追加する（かも）
-- accordion に js を追加する
+- accordion を動作させるために js を追加
