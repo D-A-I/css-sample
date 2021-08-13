@@ -85,7 +85,8 @@ img {
    * `MindBEMding` の Modifier は、ハイフンx2で表現 */
   /* +++ 黄色のボタン +++ */
 }
-.btn:focus, .btn:hover {
+.btn:focus,
+.btn:hover {
   color: #e25c00;
   background-color: #fff;
   /* currentColor: color を引き継ぐ */
@@ -111,7 +112,8 @@ img {
   color: #222;
   background-color: lightgoldenrodyellow;
 }
-.btn--gentle:focus, .btn--gentle:hover {
+.btn--gentle:focus,
+.btn--gentle:hover {
   color: #222;
   border-color: lightgoldenrodyellow;
 }
@@ -137,7 +139,8 @@ img {
   border-radius: 10px;
   transition: 0.25s;
 }
-.rounded-btn:focus, .rounded-btn:hover {
+.rounded-btn:focus,
+.rounded-btn:hover {
   color: #e25c00;
   background-color: #fff;
   /* currentColor: color を引き継ぐ */
@@ -156,7 +159,8 @@ img {
   /* +++ ダウンロードアイコン +++ */
   /* +++ 虫眼鏡アイコン +++ */
 }
-.before-icon-btn:focus, .before-icon-btn:hover {
+.before-icon-btn:focus,
+.before-icon-btn:hover {
   color: #fff;
   background-color: #e25c;
 }
@@ -212,7 +216,8 @@ img {
   text-decoration: none;
   transition: 0.25s;
 }
-.label--link:focus, .label--link:hover {
+.label--link:focus,
+.label--link:hover {
   color: #e25c00;
   background-color: #fff;
   border-color: currentColor;
@@ -229,7 +234,7 @@ img {
 }
 
 /* composite modules */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 1200px) {
   .only-lg {
     display: none;
   }
@@ -264,7 +269,7 @@ img {
   background-color: rgba(0, 0, 0, 0.2);
   transform: translateY(-50%);
 }
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 768px) {
   .junbotron {
     height: 600px;
   }
@@ -342,13 +347,6 @@ img {
   }
 }
 
-/*
-@media screen and (max-width: 768px) {
-  .media--reverse .media__body {
-    margin-right: 0;
-  }
-}
-*/
 .card {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
 }
@@ -390,23 +388,23 @@ img {
    * 最終行の下の余白は不要なため、block（cards--col3）側で相殺する */
   margin-bottom: -30px;
 }
-.cards--col4 {
-  margin-bottom: -20px;
-}
 .cards--col3 > .cards__item {
   width: 31.707%;
   margin-right: 2.43902%;
   margin-bottom: 30px;
+}
+.cards--col3 > .cards__item :nth-of-type(3n) {
+  margin-right: 0;
+}
+.cards--col4 {
+  margin-bottom: -20px;
 }
 .cards--col4 > .cards__item {
   width: 23.78%;
   margin-right: 1.62602%;
   margin-bottom: 20px;
 }
-.cards--col3 > .cards__item:nth-of-type(3n) {
-  margin-right: 0;
-}
-.cards--col4 > .cards__item:nth-of-type(4n) {
+.cards--col4 > .cards__item :nth-of-type(4n) {
   margin-right: 0;
 }
 @media screen and (max-width: 768px) {
@@ -415,7 +413,7 @@ img {
     margin-right: 0;
     margin-bottom: 20px;
   }
-  .cards > .cards__item:last-child {
+  .cards > .cards__item :last-child {
     margin-bottom: 0;
   }
 }
@@ -442,7 +440,8 @@ img {
   /* 各行の下線 */
   border-bottom: 1px solid #ddd;
 }
-.horizontal-table__row:last-child .horizontal-table__header, .horizontal-table__row:last-child .horizontal-table__text {
+.horizontal-table__row:last-child .horizontal-table__header,
+.horizontal-table__row:last-child .horizontal-table__text {
   /* 最終行の下線は除去。外枠の border に任せる */
   border-bottom-width: 0;
 }
@@ -454,10 +453,13 @@ img {
     overflow-x: auto;
     border-right-width: 0;
   }
-  .horizontal-table--md-scroll .horizontal-table__header, .horizontal-table--md-scroll .horizontal-table__text {
+  .horizontal-table--md-scroll .horizontal-table__header,
+  .horizontal-table--md-scroll .horizontal-table__text {
     /* white-space: 改行／タブ／スペースの扱いを定義
-    * nowrap は、自動改行をOFF */
+     * nowrap は、自動改行をOFF */
     white-space: nowrap;
+  }
+  .horizontal-table--md-scroll .horizontal-table__text {
     border-right: 1px solid #ddd;
   }
 }
@@ -488,7 +490,8 @@ img {
   border-right: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
-.vertical-table__header:last-child, .vertical-table__text:last-child {
+.vertical-table__header:last-child,
+.vertical-table__text:last-child {
   /* last-child >> "兄弟要素"の、最後の要素に適用される（兄弟がいないと適用されないらしい）
   * 右端の枠を非表示 */
   border-right-width: 0;
@@ -507,10 +510,12 @@ img {
     /* 下が無いと safari の表示がめっちゃ崩れた */
     min-width: 100%;
   }
-  .vertical-table__header, .vertical-table__text {
+  .vertical-table__header,
+  .vertical-table__text {
     white-space: nowrap;
   }
-  .vertical-table__header:last-child, .vertical-table__text:last-child {
+  .vertical-table__header:last-child,
+  .vertical-table__text:last-child {
     border-right-width: 1px;
   }
 }
@@ -536,7 +541,8 @@ img {
   border-right: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
-.cross-table__header:last-child, .cross-table__text:last-child {
+.cross-table__header:last-child,
+.cross-table__text:last-child {
   border-right-width: 0;
 }
 .cross-table__text-row:last-child .cross-table__text {
@@ -555,12 +561,14 @@ img {
     width: auto;
     min-width: 100%;
   }
-  .cross-table__header, .cross-table__text {
+  .cross-table__header,
+  .cross-table__text {
     /* メディアクエリで横スクロールする場合３
      * 各セルの自動改行を抑止 */
     white-space: nowrap;
   }
-  .cross-table__header:last-child, .cross-table__text:last-child {
+  .cross-table__header:last-child,
+  .cross-table__text:last-child {
     border-right-width: 0;
   }
   .cross-table__header--md-sticky {
@@ -605,7 +613,8 @@ img {
   border: 1px solid currentColor;
   transition: 0.25s;
 }
-.pager__link:focus, .pager__link:hover {
+.pager__link:focus,
+.pager__link:hover {
   color: #fff;
   background-color: #e25c00;
   opacity: 0.75;
@@ -644,7 +653,8 @@ img {
   border-bottom: 4px solid #efefef;
   transition: 0.25s;
 }
-.tab-navigation__link:focus, .tab-navigation__link:hover {
+.tab-navigation__link:focus,
+.tab-navigation__link:hover {
   color: #e25c00;
   border-bottom-color: currentColor;
   opacity: 0.75;
@@ -772,7 +782,8 @@ img {
   background-color: currentColor;
   transform: translateY(-50%);
 }
-.accordion__btn:focus, .accordion__btn:hover {
+.accordion__btn:focus,
+.accordion__btn:hover {
   color: #e25c00;
   background-color: #fff;
 }
@@ -822,7 +833,8 @@ img {
 .vertical-posts__title {
   text-decoration: none;
 }
-.vertical-posts__title:focus, .vertical-posts__title:hover {
+.vertical-posts__title:focus,
+.vertical-posts__title:hover {
   text-decoration: underline;
 }
 

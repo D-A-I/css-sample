@@ -3,14 +3,13 @@
 $theme-color: #e25c00;
 $letter-color: #fff;
 
-@mixin minMedia($width-madia: 1200px) {
-  @media screen and (min-width: $width-madia) {
-    @content;
-  }
-}
+$breakpoints: (
+  m: "screen and (max-width: 768px)",
+  l: "screen and (min-width: 1200px)",
+);
 
-@mixin maxMedia($width-madia: 768px) {
-  @media screen and (max-width: $width-madia) {
+@mixin media($point) {
+  @media #{map-get($breakpoints, $point)} {
     @content;
   }
 }
@@ -254,7 +253,7 @@ img {
 }
 
 /* composite modules */
-@include maxMedia {
+@include media(l) {
   .only-lg {
     display: none;
   }
@@ -289,7 +288,7 @@ img {
     background-color: rgba(0, 0, 0, 0.2);
     transform: translateY(-50%);
   }
-  @include minMedia {
+  @include media(m) {
     & {
       height: 600px;
     }
@@ -297,7 +296,7 @@ img {
       font-size: 2.25rem;
     }
   }
-  @include maxMedia {
+  @include media(m) {
     & {
       height: 300px;
     }
@@ -316,6 +315,7 @@ img {
 }
 
 .media {
+  $block: &;
   display: flex;
   align-items: center;
   &__img-wrapper {
@@ -345,15 +345,15 @@ img {
   /* +++ 左右逆のメディア +++ */
   &--reverse {
     flex-direction: row-reverse;
+    #{$block}__img-wrapper {
+      margin-right: 0;
+    }
+    #{$block}__body {
+      margin-right: 3.33333%;
+      text-align: right;
+    }
   }
-  &--reverse &__img-wrapper {
-    margin-right: 0;
-  }
-  &--reverse &__body {
-    margin-right: 3.33333%;
-    text-align: right;
-  }
-  @include maxMedia {
+  @include media(m) {
     & {
       /* media の `display: flex` を解除する */
       display: block;
@@ -362,19 +362,13 @@ img {
       margin-right: 0;
       margin-bottom: 20px;
     }
-    &--reverse &__body {
-      margin-right: 0;
+    &--reverse {
+      #{$block}__body {
+        margin-right: 0;
+      }
     }
   }
 }
-
-/*
-@media screen and (max-width: 768px) {
-  .media--reverse .media__body {
-    margin-right: 0;
-  }
-}
-*/
 
 .card {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
@@ -408,6 +402,7 @@ img {
 }
 
 .cards {
+  $block: &;
   display: flex;
   flex-wrap: wrap;
   /* justify-content: space-around; */
@@ -415,34 +410,36 @@ img {
     /* 各 element（cards__item） で 30px 余白を設けている
      * 最終行の下の余白は不要なため、block（cards--col3）側で相殺する */
     margin-bottom: -30px;
+    > #{$block}__item {
+      width: 31.707%;
+      margin-right: 2.43902%;
+      margin-bottom: 30px;
+      :nth-of-type(3n) {
+        margin-right: 0;
+      }
+    }
   }
   &--col4 {
     margin-bottom: -20px;
-  }
-  &--col3 > &__item {
-    width: 31.707%;
-    margin-right: 2.43902%;
-    margin-bottom: 30px;
-  }
-  &--col4 > &__item {
-    width: 23.78%;
-    margin-right: 1.62602%;
-    margin-bottom: 20px;
-  }
-  &--col3 > &__item:nth-of-type(3n) {
-    margin-right: 0;
-  }
-  &--col4 > &__item:nth-of-type(4n) {
-    margin-right: 0;
-  }
-  @include maxMedia {
-    & > &__item {
-      width: 100%;
-      margin-right: 0;
+    > #{$block}__item {
+      width: 23.78%;
+      margin-right: 1.62602%;
       margin-bottom: 20px;
+      :nth-of-type(4n) {
+        margin-right: 0;
+      }
     }
-    & > &__item:last-child {
-      margin-bottom: 0;
+  }
+  @include media(m) {
+    & {
+      > #{$block}__item {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+        :last-child {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }
@@ -451,6 +448,7 @@ $tbl-header-color: #efefef;
 $tbl-border-color: #ddd;
 
 .horizontal-table {
+  $block: &;
   /* スクロール用の modifier を切り出すための block
    * 以下は外枠.. */
   border: 1px solid $tbl-border-color;
@@ -471,28 +469,33 @@ $tbl-border-color: #ddd;
     /* 各行の下線 */
     border-bottom: 1px solid $tbl-border-color;
   }
-  &__row:last-child &__header,
-  &__row:last-child &__text {
-    /* 最終行の下線は除去。外枠の border に任せる */
-    border-bottom-width: 0;
+  &__row:last-child {
+    #{$block}__header,
+    #{$block}__text {
+      /* 最終行の下線は除去。外枠の border に任せる */
+      border-bottom-width: 0;
+    }
   }
-  @include maxMedia {
+  @include media(m) {
     /* 水平スクロールを MindBEMding の modifier で実装 */
     &--md-scroll {
       overflow-x: auto;
       border-right-width: 0;
-    }
-    &--md-scroll &__header,
-    &--md-scroll &__text {
-      /* white-space: 改行／タブ／スペースの扱いを定義
-      * nowrap は、自動改行をOFF */
-      white-space: nowrap;
-      border-right: 1px solid $tbl-border-color;
+      #{$block}__header,
+      #{$block}__text {
+        /* white-space: 改行／タブ／スペースの扱いを定義
+         * nowrap は、自動改行をOFF */
+        white-space: nowrap;
+      }
+      #{$block}__text {
+        border-right: 1px solid $tbl-border-color;
+      }
     }
   }
 }
 
 .vertical-table {
+  $block: &;
   /* 外枠 */
   border: 1px solid $tbl-border-color;
   /* table タグに付与 */
@@ -527,7 +530,7 @@ $tbl-border-color: #ddd;
     /* 下端の枠を非表示 */
     border-bottom-width: 0;
   }
-  @include maxMedia {
+  @include media(m) {
     & {
       overflow-x: auto;
       border-right-width: 0;
@@ -540,10 +543,9 @@ $tbl-border-color: #ddd;
     &__header,
     &__text {
       white-space: nowrap;
-    }
-    &__header:last-child,
-    &__text:last-child {
-      border-right-width: 1px;
+      &:last-child {
+        border-right-width: 1px;
+      }
     }
   }
 }
@@ -575,7 +577,7 @@ $tbl-border-color: #ddd;
   &__text-row:last-child &__text {
     border-bottom-width: 0;
   }
-  @include maxMedia {
+  @include media(m) {
     & {
       /* メディアクエリで横スクロールする場合１
        * table 親の div に対して設定する */
@@ -593,10 +595,9 @@ $tbl-border-color: #ddd;
       /* メディアクエリで横スクロールする場合３
        * 各セルの自動改行を抑止 */
       white-space: nowrap;
-    }
-    &__header:last-child,
-    &__text:last-child {
-      border-right-width: 0;
+      &:last-child {
+        border-right-width: 0;
+      }
     }
     &__header--md-sticky {
       /* メディアクエリで横スクロールする場合４
@@ -690,7 +691,7 @@ $tbl-border-color: #ddd;
       border-bottom-color: currentColor;
     }
   }
-  @include maxMedia {
+  @include media(m) {
     & {
       overflow-x: auto;
     }
