@@ -385,7 +385,7 @@ img {
   margin-right: 2.43902%;
   margin-bottom: 30px;
 }
-.cards--col3 > .cards__item :nth-of-type(3n) {
+.cards--col3 > .cards__item:nth-of-type(3n) {
   margin-right: 0;
 }
 .cards--col4 {
@@ -396,7 +396,7 @@ img {
   margin-right: 1.62602%;
   margin-bottom: 20px;
 }
-.cards--col4 > .cards__item :nth-of-type(4n) {
+.cards--col4 > .cards__item:nth-of-type(4n) {
   margin-right: 0;
 }
 @media screen and (max-width: 768px) {
@@ -405,7 +405,7 @@ img {
     margin-right: 0;
     margin-bottom: 20px;
   }
-  .cards > .cards__item :last-child {
+  .cards > .cards__item:last-child {
     margin-bottom: 0;
   }
 }
