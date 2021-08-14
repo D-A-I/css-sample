@@ -229,7 +229,7 @@ img {
 }
 
 /* composite modules */
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 768px) {
   .only-lg {
     display: none;
   }
@@ -264,7 +264,7 @@ img {
   background-color: rgba(0, 0, 0, 0.2);
   transform: translateY(-50%);
 }
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 1200px) {
   .junbotron {
     height: 600px;
   }
@@ -275,9 +275,6 @@ img {
 @media screen and (max-width: 768px) {
   .junbotron {
     height: 300px;
-  }
-  .junbotron__inner {
-    margin-left: auto;
   }
   .junbotron__title {
     left: 50%;
